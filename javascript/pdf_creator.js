@@ -35,9 +35,14 @@ async function createPdf() {
   let browser
   try {
     const browser = await getBrowser()
+    console.log({browser: browser})
+    
     const page = await getPageWithContent(browser, source)
-
+    console.log({page: page})
+    
     await page.waitFor(getOption('loadingDelay', options))
+    console.log('loaded')
+    
     await page.pdf({
       path: options.outputPath,
       format: 'A4',
@@ -49,9 +54,10 @@ async function createPdf() {
   } catch (err) {
     const formatedMessage = `\n ${err.message} at: ${getCurrentTimeFormated()}`
     log.write(formatedMessage)
+    console.error(formatedMessage)
   } finally {
     if (browser) browser.close()
-
+    console.log('browser closed')
     process.exit()
   }
 }
