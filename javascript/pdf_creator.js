@@ -5,7 +5,7 @@ const fs = require('fs')
 const path = require('path')
 
 var log = fs.createWriteStream(path.resolve(__dirname, '/tmp/puppet_pdf.log'), { 'flags': 'a' })
-process.stdout.write = process.stderr.write = log.write.bind(log)
+// process.stdout.write = process.stderr.write = log.write.bind(log)
 
 const defaultOptions = {
   header: "<header></header>",
