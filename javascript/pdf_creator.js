@@ -37,7 +37,7 @@ async function createPdf() {
     const browser = await getBrowser()
     const page = await getPageWithContent(browser, source)
 
-    await page.waitFor(getOption('loadingDelay', options))
+    await page.waitForTimeout(1000)
     await page.pdf({
       path: options.outputPath,
       format: 'A4',
@@ -92,6 +92,12 @@ function getCurrentTimeFormated() {
   const dateFormatted = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
 
   return `${dateFormatted}, ${date.toLocaleTimeString('en')}`
+}
+
+function delay(time) {
+   return new Promise(function(resolve) { 
+       setTimeout(resolve, time)
+   });
 }
 
 createPdf()
