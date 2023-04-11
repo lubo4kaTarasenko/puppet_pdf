@@ -40,7 +40,8 @@ async function createPdf() {
     const page = await getPageWithContent(browser, source)
     console.log({page: page})
     
-    await page.waitFor(getOption('loadingDelay', options))
+//     await page.waitFor(getOption('loadingDelay', options))
+    await page.waitForTimeout(1000)
     console.log('loaded')
     
     await page.pdf({
@@ -98,6 +99,12 @@ function getCurrentTimeFormated() {
   const dateFormatted = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`
 
   return `${dateFormatted}, ${date.toLocaleTimeString('en')}`
+}
+
+function delay(time) {
+   return new Promise(function(resolve) { 
+       setTimeout(resolve, time)
+   });
 }
 
 createPdf()
