@@ -33,9 +33,12 @@ async function createPdf() {
   if(Object.is(options.outputPath, undefined)) throw 'You must provide the outputPath option'
 
   let browser
+console.log({ b: browser})
   try {
     const browser = await getBrowser()
+console.log({ b2: browser})
     const page = await getPageWithContent(browser, source)
+console.log({ p: page })
 
     await page.waitForTimeout(1000)
     await page.pdf({
