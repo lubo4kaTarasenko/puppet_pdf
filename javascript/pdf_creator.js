@@ -38,12 +38,13 @@ async function createPdf() {
     console.log({browser: browser})
     
     const page = await getPageWithContent(browser, source)
+
     console.log({page: page})
     
 //     await page.waitFor(getOption('loadingDelay', options))
     await page.waitForTimeout(200)
     console.log('loaded')
-    
+
     await page.pdf({
       path: options.outputPath,
       format: 'A4',
