@@ -6,9 +6,9 @@ module Utils
       sh_command = <<~SH
         cd #{gem_path} && yarn #{Shellwords.escape(command)} #{prepare_args(args)}
       SH
-      Rails.logger.info("YARN: sh_command: #{sh_command}")
+      Rails.logger.info("YARN: sh_command: #{sh_command}") if defined?(Rails)
       result = system(sh_command)
-      Rails.logger.info("YARN: result: #{result}")
+      Rails.logger.info("YARN: result: #{result}") if defined?(Rails)
       result
     end
 
