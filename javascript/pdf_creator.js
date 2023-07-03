@@ -76,6 +76,7 @@ async function getPageWithContent(browser, source) {
 
 async function getBrowser() {
   const executablePath = process.env.CHROME_BIN
+  console.log({executablePath: executablePath})
 
   let defaultParams = {
     headless: true,
