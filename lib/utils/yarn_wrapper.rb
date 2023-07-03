@@ -6,7 +6,10 @@ module Utils
       sh_command = <<~SH
         cd #{gem_path} && yarn #{Shellwords.escape(command)} #{prepare_args(args)}
       SH
-      system(sh_command)
+      Rails.logger.info("YARN: sh_command: #{sh_command}")
+      result = system(sh_command)
+      Rails.logger.info("YARN: result: #{result}")
+      result
     end
 
     def validate_yarn_installation
