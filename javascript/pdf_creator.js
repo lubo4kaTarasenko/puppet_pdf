@@ -75,10 +75,10 @@ async function getPageWithContent(browser, source) {
 }
 
 async function getBrowser() {
-  const executablePath = process.env.CHROME_BIN
+  let executablePath = process.env.CHROME_BIN
   console.log({executablePath: executablePath})
 
-  // executablePath = '/usr/bin/chromium-browser';
+  executablePath = '/usr/bin/chromium-browser';
 
   let defaultParams = {
     headless: true,
