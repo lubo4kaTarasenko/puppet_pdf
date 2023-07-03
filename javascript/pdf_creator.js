@@ -78,7 +78,7 @@ async function getBrowser() {
   let executablePath = process.env.CHROME_BIN
   console.log({executablePath: executablePath})
 
-  executablePath = '/usr/bin/google-chrome';
+  executablePath = '/usr/bin/chromium-browser';
 
   let defaultParams = {
     headless: true,
