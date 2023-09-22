@@ -42,7 +42,7 @@ async function createPdf() {
     console.log({page: page})
     
 //     await page.waitFor(getOption('loadingDelay', options))
-    await page.waitForTimeout(200)
+    await page.waitForTimeout(600)
     console.log('loaded')
 
     await page.pdf({
