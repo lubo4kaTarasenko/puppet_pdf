@@ -71,6 +71,8 @@ async function getPageWithContent(browser, source) {
   const contents = fs.readFileSync(source, 'utf8')
   await page.setContent(contents, pageOptions)
 
+  // await page.setContent(content, { waitUntil: 'networkidle0' });
+
   return page
 }
 
