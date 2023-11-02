@@ -86,7 +86,7 @@ async function getBrowser() {
     headless: true,
     pipe: true,
     args: ['--disable-gpu', '--full-memory-crash-report', '--unlimited-storage',
-      '--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'],
+      '--no-sandbox', '--disable-setuid-sandbox', '--shm-size=1gb'],
   }
 
   if(executablePath) {
