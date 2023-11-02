@@ -84,10 +84,9 @@ async function getBrowser() {
 
   let defaultParams = {
     headless: true,
-    pipe: true,
-    args: ['--disable-gpu', '--full-memory-crash-report', '--unlimited-storage',
-      '--no-sandbox', '--disable-setuid-sandbox', '--shm-size=1gb'],
+    args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--single-process'],
   }
+
 
   if(executablePath) {
     defaultParams = { ...defaultParams, ...{ executablePath: executablePath } }
