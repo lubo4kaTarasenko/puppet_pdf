@@ -66,7 +66,12 @@ async function createPdf() {
 
 async function getPageWithContent(browser, source) {
   const page = await browser.newPage()
-  const pageOptions = { timeout: 900000, waitUntil: 'networkidle0' }
+
+  await page.setJavaScriptEnabled(true)
+ 
+  const pageOptions = { timeout: 60000, waitUntil: 'load' }
+ 
+  // const pageOptions = { timeout: 900000, waitUntil: 'networkidle0' }
 
   const contents = fs.readFileSync(source, 'utf8')
   await page.setContent(contents, pageOptions)
@@ -84,7 +89,8 @@ async function getBrowser() {
 
   let defaultParams = {
     headless: true,
-    args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--single-process'],
+    args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--single-process', '--window-size=1400,1080'],
+    defaultViewport: { width:1400,height:1080 },
   }
 
 
