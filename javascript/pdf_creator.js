@@ -69,9 +69,9 @@ async function getPageWithContent(browser, source) {
 
   await page.setJavaScriptEnabled(true)
  
-  const pageOptions = { timeout: 900000, waitUntil: 'load' }
+  // const pageOptions = { timeout: 900000, waitUntil: 'load' }
  
-  // const pageOptions = { timeout: 900000, waitUntil: 'networkidle0' }
+  const pageOptions = { timeout: 900000, waitUntil: 'networkidle0' }
 
   const contents = fs.readFileSync(source, 'utf8')
   await page.setContent(contents, pageOptions)
